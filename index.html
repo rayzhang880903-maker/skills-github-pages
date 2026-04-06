@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>待办清单</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📋 待办清单</h1>
+        </header>
+
+        <div class="view-toggle">
+            <button class="view-btn active" data-view="list" onclick="showView('list')">📋 列表</button>
+            <button class="view-btn" data-view="calendar" onclick="showView('calendar')">📅 日历</button>
+        </div>
+
+        <section class="input-section" id="inputSection">
+            <input
+                type="text"
+                id="taskInput"
+                class="task-input"
+                placeholder="输入新任务..."
+                maxlength="100"
+                autocomplete="off"
+            >
+            <input
+                type="date"
+                id="datePicker"
+                class="date-picker"
+            >
+            <button id="addBtn" class="add-btn">+</button>
+        </section>
+
+        <section class="task-list" id="taskList">
+        </section>
+
+        <section class="calendar" id="calendar">
+            <div class="calendar-header">
+                <button class="cal-nav-btn" onclick="changeMonth(-1)">‹</button>
+                <span class="cal-title" id="calTitle"></span>
+                <button class="cal-nav-btn" onclick="changeMonth(1)">›</button>
+                <button class="today-btn" onclick="goToToday()">今天</button>
+            </div>
+            <div class="calendar-weekdays">
+                <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
+            </div>
+            <div class="calendar-grid" id="calendarGrid">
+            </div>
+        </section>
+
+        <footer class="footer" id="footer">
+            <span id="stats"></span>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
